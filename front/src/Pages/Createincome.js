@@ -60,7 +60,7 @@ export default function Createincome() {
 
 
     return (
-        <div className="min-h-[calc(100vh-64px)] flex flex-col justify-center items-center">
+        <div className="min-h-[calc(100vh-100px)] flex flex-col justify-center items-center">
             <div className='border rounded-3xl p-5 flex flex-col md:w-[600px] w-full bg-gray-100'>
                 <h1 className="mb-8 text-3xl text-center">Add income</h1>
                 <form className="w-full" onSubmit={handlesubmit} >

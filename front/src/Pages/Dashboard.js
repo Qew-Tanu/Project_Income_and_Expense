@@ -125,7 +125,7 @@ export default function Dashboard() {
             <div className='flex justify-evenly'>
                 <div className='w-[50%]'>
                     <div className='my-5 flex justify-center items-center gap-2'>
-                        <div>Today, Net profit = </div>
+                        <div>Net profit = </div>
                         <div className={`border rounded-[1em] text-[1.2em] text-white ${totalIncome >= totalExpense ? "bg-green-700" : "bg-red-700"} p-2 underline`}>{(parseFloat(totalIncome) - parseFloat(totalExpense)).toLocaleString("th-TH")}</div>
                         <div>Baht.</div>
                     </div>
@@ -264,10 +264,10 @@ export default function Dashboard() {
                                     </td>
 
                                     <td className="flex px-6 py-4 justify-center">
-                                        <Link to={`./edit/${item.id}`} type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-3 py-2.5 me-2 mb-2 flex justify-center items-center"><CiEdit className='w-[20px] h-[20px] sm:w-[30px] sm:h-[30px]' /><span className='mx-2'>Edit</span></Link>
+                                        <Link to={`./edit/${item.id}`} type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg px-3 py-2.5 me-2 mb-2 flex justify-center items-center"><CiEdit className='w-[20px] h-[20px] sm:w-[30px] sm:h-[30px]' /><span className='mx-2 hidden sm:flex'>Edit</span></Link>
                                         <button
                                             onClick={() => handleDeleteItem(item)}
-                                            type="button" className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg px-2 py-2.5 me-2 mb-2 flex justify-center items-center"><FaTimes className='w-[20px] h-[20px] sm:w-[30px] sm:h-[30px]' /><span className='mx-2'>Delete</span></button>
+                                            type="button" className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg px-2 py-2.5 me-2 mb-2 flex justify-center items-center"><FaTimes className='w-[20px] h-[20px] sm:w-[30px] sm:h-[30px]' /><span className='mx-2 hidden sm:flex'>Delete</span></button>
                                     </td>
                                 </tr>
                             )

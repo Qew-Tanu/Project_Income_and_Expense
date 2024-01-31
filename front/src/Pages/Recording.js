@@ -56,7 +56,7 @@ export default function Recording() {
 
 
     return (
-        <div className="h-screen text-xs sm:text-lg">
+        <div className="text-xs sm:text-lg">
 
             <nav className="fixed w-full top-0 z-50 flex items-center justify-between flex-wrap bg-teal-500 px-4 h-14 sm:h-20">
 
@@ -67,7 +67,7 @@ export default function Recording() {
                     <button onClick={handleSignOut} className=" px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-0">Sign out</button>
                 </div>
             </nav>
-            <div className='h-[calc(100%-3.5rem)] sm:h-[calc(100%-5rem)] mt-14 sm:mt-20'>
+            <div className=' mt-14 sm:mt-20'>
                 <Outlet />
             </div>
 
