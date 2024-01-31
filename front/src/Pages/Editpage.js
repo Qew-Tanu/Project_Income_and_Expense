@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import config from '../Service/config';
 import Swal from 'sweetalert2';
 
@@ -171,11 +171,11 @@ export default function Editpage() {
                                 className="basis-1/4 text-nowrap px-10 text-center py-3 rounded bg-blue-500 text-white hover:bg-blue-700 focus:outline-none my-1">
                                 Update
                             </button>
-                            <button
-                                onClick={goBack}
+                            <Link
+                                to="/dashboard"
                                 className="basis-1/4 px-10 text-center py-3 rounded bg-red-500 text-white hover:bg-red-700 focus:outline-none my-1">
                                 Cancel
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </form>

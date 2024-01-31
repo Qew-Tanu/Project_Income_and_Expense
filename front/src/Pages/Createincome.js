@@ -2,16 +2,14 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import Swal from 'sweetalert2'
 import config from '../Service/config'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 
 export default function Createincome() {
     const navigate = useNavigate()
 
-    const goBack = () => {
-        navigate(-1);
-    }
+
     const [sendData, setSendData] = useState({
         name: "",
         money: "",
@@ -124,11 +122,11 @@ export default function Createincome() {
                                 className="basis-1/4 text-nowrap px-10 text-center py-3 rounded bg-blue-500 text-white hover:bg-blue-700 focus:outline-none my-1">
                                 Add
                             </button>
-                            <button
-                                onClick={goBack}
+                            <Link
+                                to="/dashboard"
                                 className="basis-1/4 px-10 text-center py-3 rounded bg-red-500 text-white hover:bg-red-700 focus:outline-none my-1">
                                 Cancel
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </form>
