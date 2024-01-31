@@ -7,6 +7,7 @@ import { CiEdit } from "react-icons/ci";
 import { FaTimes } from "react-icons/fa";
 import { FaRegMinusSquare } from "react-icons/fa";
 import { FaRegPlusSquare } from "react-icons/fa";
+import Chart from "react-apexcharts";
 
 
 export default function Dashboard() {
@@ -20,6 +21,7 @@ export default function Dashboard() {
         hour: "numeric",
         minute: "numeric",
     };
+
 
     const [dashboardList, setDashboardList] = useState([])
     const [totalExpense, setTotalExpense] = useState(0)
@@ -116,17 +118,17 @@ export default function Dashboard() {
 
 
     return (
-        <div className='p-5 h-[calc(100%-4rem)]'>
-            <div className='my-5 flex justify-center'>
+        <div className='p-5 '>
+            <div className='my-3 flex justify-center'>
                 <div className='text-[1.5em] underline'>Dashboard</div>
             </div>
-            <div className=''>
-                <div className='my-5 flex justify-center items-center gap-2'>
-                    <div>Today, Net profit = </div>
-                    <div className={`border rounded-[1em] text-[1.2em] text-white ${totalIncome >= totalExpense ? "bg-green-700" : "bg-red-700"} p-2 underline`}>{(parseFloat(totalIncome) - parseFloat(totalExpense)).toLocaleString("th-TH")}</div>
-                    <div>Baht.</div>
-                </div>
-                <div className='flex justify-center items-center gap-5'>
+            <div className='flex justify-evenly'>
+                <div className='w-[50%]'>
+                    <div className='my-5 flex justify-center items-center gap-2'>
+                        <div>Today, Net profit = </div>
+                        <div className={`border rounded-[1em] text-[1.2em] text-white ${totalIncome >= totalExpense ? "bg-green-700" : "bg-red-700"} p-2 underline`}>{(parseFloat(totalIncome) - parseFloat(totalExpense)).toLocaleString("th-TH")}</div>
+                        <div>Baht.</div>
+                    </div>
                     <div className='my-5 flex justify-center items-center gap-2'>
                         <div>Income = </div>
                         <div className='border rounded-[1em] text-[1.2em] bg-gray-100 p-2 underline'>{parseFloat(totalIncome).toLocaleString("th-TH")}</div>
@@ -138,8 +140,54 @@ export default function Dashboard() {
                         <div>Baht.</div>
                     </div>
                 </div>
+
+                <div className='items-center w-[50%] '>
+                    <Chart
+                        type="pie"
+                        width="100%"
+                        height="100%"
+                        options={{
+                            chart: {
+                                toolbar: {
+                                    show: false,
+                                },
+                            },
+                            title: {
+                                show: "",
+                            },
+                            dataLabels: {
+                                enabled: true,
+                                formatter: function (value, { seriesIndex, dataPointIndex, w }) {
+                                    return w.config.series[seriesIndex] + ` - (${Math.round(value)}%)`
+                                },
+                                style: {
+                                    fontSize: '14px',
+                                    fontWeight: 'bold',
+                                    colors: ["#000000", "#000000"]
+                                },
+                            },
+                            tooltip: {
+                                enabled: false,
+                            },
+
+
+                            labels: [`Income`, `Expense`],
+                            colors: ["#4786fc", "#fa6161"],
+                            legend: {
+                                show: true,
+                                position: 'bottom',
+                                onItemClick: {
+                                    toggleDataSeries: true
+                                },
+                                onItemHover: {
+                                    highlightDataSeries: true
+                                },
+                                fontSize: '18px',
+                            }
+                        }} series={[totalIncome, totalExpense]} />
+                </div>
             </div>
-            <div className='my-5 flex justify-between gap-3'>
+            <div className='sticky top-14 z-[49] sm:top-20  my-5 flex justify-between gap-3 bg-white'>
                 <div className="flex gap-3">
                     <Link to="./addincome" className="inline-block items-center p-2 rounded-lg bg-blue-500 text-white hover:bg-blue-700 group">
                         <div className="flex items-center">
@@ -169,27 +217,27 @@ export default function Dashboard() {
 
 
 
-            <div className="relative overflow-auto shadow-md sm:rounded-lg h-[75%] ">
-                <table className="w-full text-left rtl:text-right text-gray-500">
-                    <thead className="text-[1.25em] text-gray-700 uppercase bg-gray-50 ">
-                        <tr>
-                            <th scope="col" className="sticky top-0 px-6 py-3 bg-gray-50">
+            <div className=" overflow-x-auto shadow-md sm:rounded-lg ">
+                <table className=" w-full text-left rtl:text-right text-gray-500">
+                    <thead className=" text-[1.25em] text-gray-700 uppercase bg-gray-50 ">
+                        <tr >
+                            <th scope="col" className=" px-6 py-3 bg-gray-50">
                                 Date
                             </th>
-                            <th scope="col" className="sticky top-0 px-6 py-3 text-center bg-gray-50">
+                            <th scope="col" className=" px-6 py-3 text-center bg-gray-50">
                                 Time
                             </th>
-                            <th scope="col" className="sticky top-0 px-6 py-3 text-center bg-gray-50">
+                            <th scope="col" className=" px-6 py-3 text-center bg-gray-50">
                                 Type
                             </th>
-                            <th scope="col" className="sticky top-0 px-6 py-3 text-center bg-gray-50">
+                            <th scope="col" className=" px-6 py-3 text-center bg-gray-50">
                                 Name
                             </th>
-                            <th scope="col" className="sticky top-0 px-6 py-3 text-center bg-gray-50">
+                            <th scope="col" className=" px-6 py-3 text-center bg-gray-50">
                                 Money
                             </th>
 
-                            <th scope="col" className="sticky top-0 px-6 py-3 text-center bg-gray-50">
+                            <th scope="col" className=" px-6 py-3 text-center bg-gray-50">
                                 Action
                             </th>
                         </tr>

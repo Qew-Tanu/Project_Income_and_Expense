@@ -58,16 +58,16 @@ export default function Recording() {
     return (
         <div className="h-screen text-xs sm:text-lg">
 
-            <nav className="flex items-center justify-between flex-wrap bg-teal-500 p-6 h-20">
+            <nav className="fixed w-full top-0 z-50 flex items-center justify-between flex-wrap bg-teal-500 px-4 h-14 sm:h-20">
 
                 <div className="flex justify-center items-center flex-shrink-0 text-white ">
-                    <span className="font-semibold text-[1.5em] tracking-tight text-center">Welcome {profile.firstname + " " + profile.lastname}</span>
+                    <span className="font-semibold text-[1.2em] sm:text-[1.5em] tracking-tight text-center">Welcome {profile.firstname + " " + profile.lastname}</span>
                 </div>
                 <div className=" flex lg:items-center gap-3">
                     <button onClick={handleSignOut} className=" px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-0">Sign out</button>
                 </div>
             </nav>
-            <div className='h-[calc(100%-5rem)]'>
+            <div className='h-[calc(100%-3.5rem)] sm:h-[calc(100%-5rem)] mt-14 sm:mt-20'>
                 <Outlet />
             </div>
 

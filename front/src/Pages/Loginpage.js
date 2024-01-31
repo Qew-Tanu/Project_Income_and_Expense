@@ -22,10 +22,8 @@ export default function Loginpage() {
 
     const handlesubmit = async (e) => {
         e.preventDefault()
-        console.log("test");
         try {
             await axios.post(config.api_path + "/user/signin", sendData).then(res => {
-                console.log(res);
                 if (res.data.message === "success") {
                     localStorage.setItem(config.token_name, res.data.token)
                     Swal.fire({
@@ -39,7 +37,6 @@ export default function Loginpage() {
                     })
                 }
             }).catch(err => {
-                console.log(err);
                 if (err.response.status === 401) {
                     Swal.fire({
                         title: `Can't login`,
