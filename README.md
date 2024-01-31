@@ -15,5 +15,9 @@
 - express : Node.js web application framework
 - bcrypt : password-hashing
 - jsonwebtoken : Authorization
-- pg : connect to PosgresSQL
+- pg : connect to PostgreSQL
 - sequelize : query database
+
+## Database
+
+- ElephantSQL (PostgreSQL)
