@@ -13,7 +13,6 @@ exports.hashPassword = async (plaintextPassword) => {
 
 exports.comparePassword = async (plaintextPassword, hash) => {
     try {
-        console.log("test3");
         const result = await bcrypt.compare(plaintextPassword, hash);
         return result
     } catch (error) {
