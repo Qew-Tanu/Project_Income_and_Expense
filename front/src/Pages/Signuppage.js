@@ -204,7 +204,7 @@ export default function Signuppage() {
                     </div>
                     <div className="text-grey-dark mt-6 flex items-center justify-center">
                         Already have an account?&nbsp;
-                        <Link className="no-underline border-b border-blue text-blue text-blue-700" href="/login/">
+                        <Link className="no-underline border-b border-blue text-blue text-blue-700" to="/login/">
                             Log in
                         </Link>.
                     </div>
